@@ -1,0 +1,33 @@
+<div class="bg-light card mt-2" *ngFor="let page of pages">
+  <div class="card-body">
+    <div class="pl-1 bg-info">
+      <h3 class="card-title text-white font-weight-bold">{{page.title}}</h3>
+    </div>
+    <p [innerHTML]="page.snippet">{{ page.snippet }}</p>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col-6">
+        <a target="_blank" [href]=" 'https://en.wikipedia.org?curid=' + page.pageid ">
+        <button class="btn-info btn">
+          Read the Article
+        </button>
+      </a>
+      </div>
+      <div class="col-6 ">
+        <div class="float-right">
+        <span class="font-weight-bold "> Last Modified: </span>
+        {{ page.timestamp | date:'fullDate'
+        }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- {{pages.length}} -->
+<!--
+  {{pages.length}} starts at 0, when the input search is empty
+  once we enter any search keyword we will see 10 searches legnth
+   with a number 10 length tells us that we successfully completed our request
+   to the APi and now we have the data that we were looking for inside of our page list component
+-->

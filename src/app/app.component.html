@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="w-100">
+    <app-search-bar (submitted)="onTerm($event)"></app-search-bar>
+  </div>
+  <!-- step 1 in a parent component,we find where we create the child component -->
+  <!-- step 2 decide on the property name that we want to use to communiate from the parent to the child-->
+  <!-- step 3 add a new binding to the child ocmponent specifying the data we awant to pass down-->
+  <!-- we add property binding to app-page-list [pages]=""..
+    app.component.ts has pages =[]; we need to add that to [pages]="pages"
+    "pages" is a referenc ebakc to the pages property of the component inside of the square bracket saying
+    that we wawnt to set the apge, this proerty on the page list
+    "pages" is the source of the information
+    [pages] = this is the target of the information
+  -->
+  <!-- step 4 - see the child component class file --page-list -->
+  <app-page-list *ngIf="pages.length" [pages]="pages">
+  </app-page-list>
+
+  <p *ngIf = "!pages.length">
+    Please type in the input what you are seeking
+  </p>
+</div>

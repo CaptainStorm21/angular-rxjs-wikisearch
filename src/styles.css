@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Mukta:wght@200;400;500;600;700;800&family=Yantramanav:wght@100;300;400;500;700&display=swap');
+
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Mukta', sans-serif;
+font-family: 'Yantramanav', sans-serif;
+*/
+body {
+    font-family: 'Yantramanav', sans-serif;
+    background-color: rgb(236, 236, 236);
+    color:  rgb(31, 24, 24);
+}
+
