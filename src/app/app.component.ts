@@ -36,9 +36,9 @@ export class AppComponent {
     //     this.pages = response.query.search;
     //   });
     // }
-    this.wikipedia.search(term).subscribe((pages) => {
+    this.wikipedia.search(term).subscribe((articles) => {
       // fix error solution
-      this.pages = pages;
+      this.pages = articles;
     });
   }
 }
