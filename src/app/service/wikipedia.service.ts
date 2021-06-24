@@ -2,7 +2,44 @@ import { Injectable } from '@angular/core';
 // allow the http request
 import { HttpClient } from '@angular/common/http';
 
+// import obserable from rxjs from rxjs library
 import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
+
+// define an interface - to describe the scruture of the object
+// interface Car {
+//   year: number;
+//   color: string;
+//   running: boolean;
+//   make: {
+//     name: string;
+//     dateCreated: number;
+//   };
+// }
+
+// grab the interface and integrate it with the obsesrvable
+// const observable = new Observable<Car>(observer => {
+//   observer.next({
+//     year: 2000,
+//     color: 'red',
+//     running: true,
+//     make: {
+//       name: 'Toyota',
+//       dateCreated: 2000
+//     }
+//   });
+// }).pipe(
+//   pluck(
+//     'make',
+//     'name',
+//     'dateCreated'
+//   )
+// );
+
+// observable.subscribe((value) => {
+//   console.log(value);
+// });
+
 
 // // if we remove <number>, the "value" on line 13 will be unknown
 // const observable = new Observable <number> ((observer) => {
