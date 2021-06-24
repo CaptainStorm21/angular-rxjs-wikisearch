@@ -1,10 +1,16 @@
+
 import { Injectable } from '@angular/core';
 // allow the http request
 import { HttpClient } from '@angular/common/http';
 
 // import obserable from rxjs from rxjs library
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+
+// import wikipedia response
+import { WikipediaResponse } from './../wikipediaResponse';
+
+
 
 // define an interface - to describe the scruture of the object
 // interface Car {
@@ -57,17 +63,16 @@ import { pluck } from 'rxjs/operators';
 export class WikipediaService {
   constructor(
     // dependency injection
-    private http:HttpClient,
+    private http: HttpClient,
   ) {
   }
 
+  // tslint:disable-next-line: typedef
   public search(term: string) {
     // to make a request
     // returns an observable
-    return this.http.get('https://en.wikipedia.org/w/api.php', {
-      /**
-          tslint:disable-next-line: jsdoc-format
-          tslint:disable-next-line: jsdoc-format
+    return this.http.get<WikipediaResponse>('https://en.wikipedia.org/w/api.php', {
+      /*
           we passed some arguments to customize network request
           tslint:disable-next-line: jsdoc-format
           tslint:disable-next-line: jsdoc-format
@@ -85,7 +90,12 @@ export class WikipediaService {
         srsearch: term,
         origin: '*'
       }
-    });
+    }).pipe(
+      pluck(
+        'query',
+        'search'
+      )
+    );
   }
 }
 
